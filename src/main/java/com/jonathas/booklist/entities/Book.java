@@ -1,5 +1,6 @@
 package com.jonathas.booklist.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,10 +17,15 @@ public class Book {
     private String title;
     private Integer yearOfPublication;
     private String author;
-    private String shortDescription;
-    private String longDescription;
     private String imageUrl;
     private String genre;
+            
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
 
     public Book() {
     }
