@@ -1,6 +1,7 @@
 package com.jonathas.booklist.DTO;
 
 import com.jonathas.booklist.entities.Book;
+import com.jonathas.booklist.projections.BookMinProjection;
 
 public class BookMinDTO {
     private Long id;
@@ -18,6 +19,14 @@ public class BookMinDTO {
         yearOfPublication = entity.getYearOfPublication();
         shortDescription = entity.getShortDescription();
         imageUrl = entity.getImageUrl();
+    }
+
+    public BookMinDTO(BookMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        yearOfPublication = projection.getYearOfPublication();
+        shortDescription = projection.getShortDescription();
+        imageUrl = projection.getImageUrl();
     }
 
     public Long getId() {

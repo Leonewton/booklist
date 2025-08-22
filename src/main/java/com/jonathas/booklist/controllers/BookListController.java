@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jonathas.booklist.DTO.BookListDTO;
+import com.jonathas.booklist.DTO.BookMinDTO;
 import com.jonathas.booklist.services.BookListService;
+import com.jonathas.booklist.services.BookService;
 
 
 
@@ -20,13 +22,22 @@ public class BookListController {
     @Autowired
     private BookListService bookListService;
 
+    @Autowired
+    private BookService bookService;
+
     @GetMapping
     public List<BookListDTO> findAll() {
         return bookListService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
-    public BookListDTO findById(@PathVariable Long id) {
-        return bookListService.findById(id);
+    @GetMapping(value = "/{bookListId}")
+    public BookListDTO findById(@PathVariable Long bookListId) {
+        return bookListService.findById(bookListId);
+    }
+
+    @GetMapping(value = "/{bookListId}/books")
+    public List<BookMinDTO> findBooksByList(@PathVariable Long bookListId) {
+         List<BookMinDTO>  books = bookService.findByList(bookListId);
+         return books;
     }
 }

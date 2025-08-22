@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jonathas.booklist.DTO.BookDTO;
 import com.jonathas.booklist.DTO.BookMinDTO;
 import com.jonathas.booklist.entities.Book;
+import com.jonathas.booklist.projections.BookMinProjection;
 import com.jonathas.booklist.repositories.BookRepository;
 
 @Service
@@ -29,5 +30,12 @@ public class BookService {
     public BookDTO findById(Long id) {
         Book book = bookRepository.findById(id).orElseThrow();
         return new BookDTO(book);
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookMinDTO> findByList(Long listId) {
+        List<BookMinProjection> books = bookRepository.searchByList(listId);
+        List<BookMinDTO> bookMinDTOs = books.stream().map(BookMinDTO::new).collect(Collectors.toList());
+        return bookMinDTOs;
     }
 }

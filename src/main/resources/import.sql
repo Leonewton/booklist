@@ -12,16 +12,16 @@ INSERT INTO books (title, year_of_publication, author, short_description, long_d
 INSERT INTO book_list (name) VALUES ('Clássicos Brasileiros');
 INSERT INTO book_list (name) VALUES ('Romances e Aventuras');
 
--- Clássicos Brasileiros: Dom Casmurro, Memórias Póstumas de Brás Cubas, O Cortiço, Vidas Secas, Senhora, Iracema
+-- Clássicos Brasileiros: Dom Casmurro, Memórias Póstumas de Brás Cubas, O Cortiço, Senhora, Iracema
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (1, 1, 0);
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (6, 1, 1);
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (7, 1, 2);
-INSERT INTO belonging (book_id, book_list_id, position) VALUES (8, 1, 3);
-INSERT INTO belonging (book_id, book_list_id, position) VALUES (9, 1, 4);
-INSERT INTO belonging (book_id, book_list_id, position) VALUES (10, 1, 5);
+INSERT INTO belonging (book_id, book_list_id, position) VALUES (9, 1, 3);
+INSERT INTO belonging (book_id, book_list_id, position) VALUES (10, 1, 4);
 
--- Romances e Aventuras: O Alquimista, Capitães da Areia, Grande Sertão: Veredas, A Hora da Estrela
+-- Romances e Aventuras: O Alquimista, Capitães da Areia, Grande Sertão: Veredas, A Hora da Estrela, Vidas Secas
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (2, 2, 0);
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (3, 2, 1);
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (4, 2, 2);
 INSERT INTO belonging (book_id, book_list_id, position) VALUES (5, 2, 3);
+INSERT INTO belonging (book_id, book_list_id, position) VALUES (8, 2, 4);
